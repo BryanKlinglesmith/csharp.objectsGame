@@ -10,6 +10,7 @@ namespace csharp.objectsGame
     {
         public MapLocation(int x, int y) : base(x, y)
         {
+
         }
     }
 }

@@ -12,9 +12,23 @@ namespace csharp.objectsGame
         {
             Map map = new Map(8, 5);
 
-            MapLocation x = new MapLocation(4, 2);
+            try
+            {
+                MapLocation mapLocation = new MapLocation(20, 20, map);
+            }
+            catch(OutOfBoundsException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (CsharpObjectsGameException)
+            {
+                Console.WriteLine("Unhandled CsharpObjectsGameException");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Unhandled Exception");
+            }
 
-            Console.WriteLine(x.DistanceTo(5, 5));
 
             //Tower tower = new Tower(); //the first Tower is the class that is called. Second tower is a variable with a class of "Tower". after the = is what the variable becomes.
         }

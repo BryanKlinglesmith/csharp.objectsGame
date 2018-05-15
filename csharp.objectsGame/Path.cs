@@ -10,6 +10,8 @@ namespace csharp.objectsGame
     {
         private readonly MapLocation[] _path;        //The "_" in front of path is used to show it is a private field
 
+        public int Length => _path.Length;
+
         public Path(MapLocation[] path)
         {
             _path = path;

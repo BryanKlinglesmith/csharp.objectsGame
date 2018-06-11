@@ -15,7 +15,7 @@ namespace csharp.objectsGame
             try
             {
                 Path path = new Path(
-                    new [] {
+                    new[] {
                         new MapLocation(0, 2, map),
                         new MapLocation(1, 2, map),
                         new MapLocation(2, 2, map),
@@ -29,9 +29,9 @@ namespace csharp.objectsGame
 
                 Invader[] invaders =
                 {
-                    new Invader(path),
-                    new Invader(path),
-                    new Invader(path),
+                    new ShieldedInvader(path),
+                    new FastInvader(path),
+                    new StrongInvader(path),
                     new Invader(path)
                 };
 
@@ -51,7 +51,7 @@ namespace csharp.objectsGame
 
                 Console.WriteLine("Player " + (playerWon ? "won" : "lost"));
             }
-            catch(OutOfBoundsException ex)
+            catch (OutOfBoundsException ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -66,6 +66,7 @@ namespace csharp.objectsGame
 
 
             //Tower tower = new Tower(); //the first Tower is the class that is called. Second tower is a variable with a class of "Tower". after the = is what the variable becomes.
+            Console.ReadKey();
         }
     }
 }

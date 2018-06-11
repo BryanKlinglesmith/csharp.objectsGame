@@ -8,9 +8,9 @@ namespace csharp.objectsGame
 {
     class Tower
     {
-        private const int _range = 1;
-        private const int _power = 1;
-        private const double _accuracy = .75;
+        protected virtual int Range { get; } = 1;
+        protected virtual int Power { get; } = 1;
+        protected virtual double Accuracy { get; } = .75;
 
         private static readonly Random _random = new Random();
 
@@ -23,7 +23,7 @@ namespace csharp.objectsGame
 
         public bool IsSuccessfulShot()
         {
-            return _random.NextDouble() < _accuracy;
+            return _random.NextDouble() < Accuracy;
         }
 
         public void FireOnInvaders(Invader[] invaders)
@@ -32,12 +32,11 @@ namespace csharp.objectsGame
 
             foreach(Invader invader in invaders)
             {
-                if(invader.IsActive && _location.InRangeOf(invader.Location, _range))
+                if(invader.IsActive && _location.InRangeOf(invader.Location, Range))
                 {
                     if (IsSuccessfulShot())
                     {
-                        invader.DecreaseHealth(_power);
-                        Console.WriteLine("shot at and hit an invader!");
+                        invader.DecreaseHealth(Power);
 
                         if(invader.IsNeutralized)
                         {
